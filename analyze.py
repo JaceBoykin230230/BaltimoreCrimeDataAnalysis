@@ -6,7 +6,8 @@ df = pd.read_csv('BPD_Part_1_Victim_Based_Crime_Data.csv')
 
 '''
 Column names: 
-Index(['CrimeDate', 'CrimeTime', 'CrimeCode', 'Location', 'Description',                                                    'Inside/Outside', 'Weapon', 'Post', 'District', 'Neighborhood',                                                      'Longitude', 'Latitude', 'Location 1', 'Premise', 'Total Incidents'],                                               dtype='object') 
+Index(['CrimeDate', 'CrimeTime', 'CrimeCode', 'Location', 'Description','Inside/Outside', 'Weapon', 'Post', 'District', 'Neighborhood',
+'Longitude', 'Latitude', 'Location 1', 'Premise', 'Total Incidents'], dtype='object') 
 '''
 rich.print(df.columns)
 rich.print(df.dtypes)
@@ -24,7 +25,7 @@ rich.print("The most common crime in each district is:")
 rich.print(df.groupby('District')['Description'].value_counts().groupby('District').idxmax())
 rich.print()
 
-# 3. What neighnorhood has the most crime?
+# 3. What neighborhood has the most crime?
 rich.print("The neighborhood with the most crime is:")
 rich.print(df['Neighborhood'].value_counts().idxmax())
 rich.print()
@@ -44,7 +45,7 @@ rich.print("On what premise are you most likely to be a victim of each type of c
 rich.print(df.groupby('Description')['Premise'].value_counts().groupby('Description').idxmax())
 rich.print()
 
-# 7. For each year what day has the most crime?
+# 7. For each year, what day has the most crime?
 rich.print("For each year, what day of the year has the most crime?")
 df['CrimeDate'] = pd.to_datetime(df['CrimeDate'])
 df['Year'] = df['CrimeDate'].dt.year
