@@ -52,7 +52,6 @@ df['Year'] = df['CrimeDate'].dt.year
 rich.print(df.groupby('Year')['CrimeDate'].value_counts().groupby('Year').idxmax())
 rich.print()
 
-
 #Graphs
 
 # 1. for each district create a bar graph showing the most common hour for a crime to occur
@@ -84,6 +83,3 @@ plt.tight_layout()
 plt.savefig('precentage_of_crime_per_premise.png')
 plt.show()
 plt.close()
-
-
-
